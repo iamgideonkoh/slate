@@ -357,8 +357,14 @@
 * Retrieving a task with its Time Estimate,
 * Removing the Time Estimate of a specific task.</p>
 <h1 id='authentication'>Authentication</h1>
+<p><strong>This part is taken from the <a href="https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html">main ClickUp API documentation page</a>.</strong></p>
+
+<p>There are two ways to authenticate with ClickUp API 2.0, with a personal token or creating an application and authenticating with an OAuth2 flow. Once you receive one of those two tokens, use that in the Authorization header of your API requests.</p>
+
+<p>IMPORTANT - If you are creating an application for other&#39;s to use, it is highly recommended that you use the OAuth2 flow.</p>
+<h2 id='personal-token'>Personal Token</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To start using an API call, you&#39;ll need to authorize with your access token in this format:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
@@ -368,12 +374,6 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
 <p>Make sure to replace <code>access_token</code> with your API key.</p>
 </blockquote>
 
-<p><strong>This part is taken from the <a href="https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html">main ClickUp API documentation page</a>.</strong></p>
-
-<p>There are two ways to authenticate with ClickUp API 2.0, with a personal token or creating an application and authenticating with an OAuth2 flow. Once you receive one of those two tokens, use that in the Authorization header of your API requests.</p>
-
-<p>IMPORTANT - If you are creating an application for other&#39;s to use, it is highly recommended that you use the OAuth2 flow.</p>
-<h2 id='personal-token'>Personal Token</h2>
 <p>If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.personal_token</p>
 
 <p>If your token becomes compromised, you can regenerate it. However, be aware that any applications that were using the old token will lose access once it has been regenerated.</p>
