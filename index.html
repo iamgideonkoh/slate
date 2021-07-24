@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -302,9 +302,6 @@
       <img src="images/logo-24e2487a.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -316,6 +313,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#personal-token" class="toc-h2 toc-link" data-title="Personal Token">Personal Token</a>
+                  </li>
+                  <li>
+                    <a href="#oauth2-flow" class="toc-h2 toc-link" data-title="OAuth2 Flow">OAuth2 Flow</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
@@ -336,7 +341,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://clickup.com'>Sign Up to start using ClickUp</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -344,41 +349,44 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the testtest API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to a mini ClickUp API documentation page! </p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>Here, we&#39;ll specifically discuss API calls for the Time Estimates feature only. This includes:
+- Creating a task with Time Estimates, 
+- Updating the Time Estimate of a specific task, 
+- Retrieving a task with its Time Estimate,
+- Removing the Time Estimate of a specific task.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>access_token</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p><strong>This part is taken from the <a href="https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html">main ClickUp API documentation page</a>.</strong></p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>There are two ways to authenticate with ClickUp API 2.0, with a personal token or creating an application and authenticating with an OAuth2 flow. Once you receive one of those two tokens, use that in the Authorization header of your API requests.</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>IMPORTANT - If you are creating an application for other&#39;s to use, it is highly recommended that you use the OAuth2 flow.</p>
+<h2 id='personal-token'>Personal Token</h2>
+<p>If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.personal_token</p>
+
+<p>If your token becomes compromised, you can regenerate it. However, be aware that any applications that were using the old token will lose access once it has been regenerated.</p>
+
+<p><code>Authorization: access_token</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>access_token</code> with your personal token.
 </aside>
+<h2 id='oauth2-flow'>OAuth2 Flow</h2>
+<p>When you want to develop an application that others can use, you must go through the OAuth2 flow so that ever user that uses your application gets assigned an individualized token. This way each user of your application is able to access their own ClickUp resources. <a href="https://jsapi.apiary.io/apis/clickup20/introduction/authentication/oauth2-flow.html">Click here to read further on how to use the ClickUp OAuth2 flow</a></p>
+
+<p>Note: <em>ClickUp uses the authorization code grant type.</em></p>
 <h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
@@ -585,9 +593,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
