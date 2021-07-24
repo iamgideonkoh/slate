@@ -8,9 +8,6 @@ toc_footers:
   - <a href='https://clickup.com'>Sign Up to start using ClickUp</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
-includes:
-  - errors
-
 search: true
 
 code_clipboard: true
@@ -37,17 +34,16 @@ IMPORTANT - If you are creating an application for other's to use, it is highly 
 
 ## Personal Token
 
-> To start using an API call, you'll need to authorize with your access token in this format:
+> To start using an API call, you'll need to authorize the call together with your access token by passing the correct header `-H` with each request:
 
 ```shell
-# With shell, you can just pass the correct header with each request
 curl "api_endpoint_here" \
   -H "Authorization: access_token"
 ```
 
 > Make sure to replace `access_token` with your API key.
 
-If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.personal_token
+If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.
 
 If your token becomes compromised, you can regenerate it. However, be aware that any applications that were using the old token will lose access once it has been regenerated.
 
@@ -62,34 +58,13 @@ When you want to develop an application that others can use, you must go through
 
 Note: _ClickUp uses the authorization code grant type._
 
-# Kittens
+# Time Estimates
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Create a simple task with a specific Time Estimate
 
 ```shell
 curl "http://example.com/api/kittens" \
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
@@ -113,11 +88,11 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint creates a task with a specific Time Estimate
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://api.clickup.com/api/v2/list/list_id/task`
 
 ### Query Parameters
 
@@ -130,32 +105,11 @@ available | true | If set to false, the result will include kittens that have al
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Updating the Time Estimate of a specific task
 
 ```shell
 curl "http://example.com/api/kittens/2" \
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
 ```
 
 > The above command returns JSON structured like this:
@@ -170,13 +124,13 @@ let max = api.kittens.get(2);
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint updates the Time Estimate of a specific task
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`PUT https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&team_id=`
 
 ### URL Parameters
 
@@ -184,33 +138,13 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Retrieving a task with its Time Estimate
 
 ```shell
 curl "http://example.com/api/kittens/2" \
   -X DELETE \
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
 ```
 
 > The above command returns JSON structured like this:
@@ -222,11 +156,11 @@ let max = api.kittens.delete(2);
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint retrieves a task with its Time Estimate.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&team_id=&include_subtasks=`
 
 ### URL Parameters
 
@@ -234,3 +168,31 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
 
+## Removing Time Estimate from a task
+
+```shell
+curl "http://example.com/api/kittens/2" \
+  -X DELETE \
+  -H "Authorization: meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ":("
+}
+```
+
+This endpoint removes the Time Estimate from a task.
+
+### HTTP Request
+
+`PUT https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&team_id=`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
