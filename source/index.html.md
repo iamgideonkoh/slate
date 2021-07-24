@@ -3,12 +3,9 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://clickup.com'>Sign Up to start using ClickUp</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -21,51 +18,47 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the testtest API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to a mini ClickUp API documentation page! 
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Here, we'll specifically discuss API calls for the Time Estimates feature only. This includes:
+- Creating a task with Time Estimates, 
+- Updating the Time Estimate of a specific task, 
+- Retrieving a task with its Time Estimate,
+- Removing the Time Estimate of a specific task.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: access_token"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure to replace `access_token` with your API key.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+**This part is taken from the [main ClickUp API documentation page](https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html).**
 
-> Make sure to replace `meowmeowmeow` with your API key.
+There are two ways to authenticate with ClickUp API 2.0, with a personal token or creating an application and authenticating with an OAuth2 flow. Once you receive one of those two tokens, use that in the Authorization header of your API requests.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+IMPORTANT - If you are creating an application for other's to use, it is highly recommended that you use the OAuth2 flow.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+## Personal Token
+If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.personal_token
 
-`Authorization: meowmeowmeow`
+If your token becomes compromised, you can regenerate it. However, be aware that any applications that were using the old token will lose access once it has been regenerated.
+
+`Authorization: access_token`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>access_token</code> with your personal token.
 </aside>
+
+## OAuth2 Flow
+When you want to develop an application that others can use, you must go through the OAuth2 flow so that ever user that uses your application gets assigned an individualized token. This way each user of your application is able to access their own ClickUp resources. [Click here to read further on how to use the ClickUp OAuth2 flow](https://jsapi.apiary.io/apis/clickup20/introduction/authentication/oauth2-flow.html)
+
+Note: _ClickUp uses the authorization code grant type._
 
 # Kittens
 
