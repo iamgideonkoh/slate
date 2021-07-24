@@ -28,7 +28,15 @@ Here, we'll specifically discuss API calls for the Time Estimates feature only. 
 
 # Authentication
 
-> To authorize, use this code:
+**This part is taken from the [main ClickUp API documentation page](https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html).**
+
+There are two ways to authenticate with ClickUp API 2.0, with a personal token or creating an application and authenticating with an OAuth2 flow. Once you receive one of those two tokens, use that in the Authorization header of your API requests.
+
+IMPORTANT - If you are creating an application for other's to use, it is highly recommended that you use the OAuth2 flow.
+
+## Personal Token
+
+> To start using an API call, you'll need to authorize with your access token in this format:
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -38,13 +46,6 @@ curl "api_endpoint_here" \
 
 > Make sure to replace `access_token` with your API key.
 
-**This part is taken from the [main ClickUp API documentation page](https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html).**
-
-There are two ways to authenticate with ClickUp API 2.0, with a personal token or creating an application and authenticating with an OAuth2 flow. Once you receive one of those two tokens, use that in the Authorization header of your API requests.
-
-IMPORTANT - If you are creating an application for other's to use, it is highly recommended that you use the OAuth2 flow.
-
-## Personal Token
 If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.personal_token
 
 If your token becomes compromised, you can regenerate it. However, be aware that any applications that were using the old token will lose access once it has been regenerated.
