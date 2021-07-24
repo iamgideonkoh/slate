@@ -21,10 +21,10 @@ code_clipboard: true
 Welcome to a mini ClickUp API documentation page! 
 
 Here, we'll specifically discuss API calls for the Time Estimates feature only. This includes:
-- Creating a task with Time Estimates, 
-- Updating the Time Estimate of a specific task, 
-- Retrieving a task with its Time Estimate,
-- Removing the Time Estimate of a specific task.
+* Creating a task with Time Estimates, 
+* Updating the Time Estimate of a specific task, 
+* Retrieving a task with its Time Estimate,
+* Removing the Time Estimate of a specific task.
 
 # Authentication
 
