@@ -20,9 +20,12 @@ Welcome to a mini ClickUp API documentation page!
 Here, we'll specifically discuss API calls for the Time Estimates feature only. This includes:
 
 * Creating a task with Time Estimates
-* Updating the Time Estimate of a specific task
-* Retrieving a task with its Time Estimate
-* Removing the Time Estimate of a specific task
+* Updating the Time Estimate of a task
+* Retrieving a task and its Time Estimate
+* Removing the Time Estimate of a task
+
+<aside class="warning">You must <a href='https://docs.clickup.com/en/articles/1666875-time-estimates-clickapp'>enable Time Estimate</a> in your ClickUp account first.</aside>
+
 
 # Authentication
 
@@ -60,7 +63,7 @@ Note: _ClickUp uses the authorization code grant type._
 
 # Time Estimates
 
-## Create a simple task with a specific Time Estimate
+## Create a task with its Time Estimate
 
 ```shell
 curl "http://example.com/api/kittens" \
@@ -105,7 +108,7 @@ available | true | If set to false, the result will include kittens that have al
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-## Updating the Time Estimate of a specific task
+## Updating the Time Estimate of a task
 
 ```shell
 curl "http://example.com/api/kittens/2" \
@@ -125,8 +128,6 @@ curl "http://example.com/api/kittens/2" \
 ```
 
 This endpoint updates the Time Estimate of a specific task
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
