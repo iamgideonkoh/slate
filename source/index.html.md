@@ -27,6 +27,7 @@ Here, we'll specifically discuss API calls for the Time Estimates feature only. 
 <aside class="warning">You must <a href='https://docs.clickup.com/en/articles/1666875-time-estimates-clickapp'>enable Time Estimate</a> in your ClickUp account first.</aside>
 
 
+
 # Authentication
 
 **This part is taken from the [main ClickUp API documentation page](https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html).**
@@ -61,33 +62,103 @@ When you want to develop an application that others can use, you must go through
 
 Note: _ClickUp uses the authorization code grant type._
 
+
+
+
 # Time Estimates
+
+## Setting Time Estimates
+`time_estimate` values use milliseconds.
+
 
 ## Create a task with its Time Estimate
 
 ```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
+curl "https://api.clickup.com/api/v2/list/LIST_ID/task" 
+  -H "Authorization: access_token" 
+  -H "Content-Type: application/json" 
+  -X POST 
+  -d 
+  '{
+      "name": "your task title",  
+      "time_estimate": 8640000
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+{
+    "id": "TASK_ID",
+    "custom_id": null,
+    "name": "test",
+    "text_content": null,
+    "description": null,
+    "status": {
+        "id": "p7820110_wJliwclT",
+        "status": "planning",
+        "color": "#d3d3d3",
+        "orderindex": 0,
+        "type": "open"
+    },
+    "orderindex": "13.00065730000000000000000000000000",
+    "date_created": "1627199779101",
+    "date_updated": "1627199779101",
+    "date_closed": null,
+    "archived": false,
+    "creator": {
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    },
+    "assignees": [],
+    "watchers": [{
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "initials": "GK",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    }],
+    "checklists": [],
+    "tags": [],
+    "parent": null,
+    "priority": null,
+    "due_date": null,
+    "start_date": null,
+    "points": null,
+    "time_estimate": 8640000,
+    "time_spent": 0,
+    "custom_fields": [],
+    "dependencies": [],
+    "linked_tasks": [],
+    "team_id": "5750043",
+    "url": "https://app.clickup.com/t/TASK_ID",
+    "permission_level": "create",
+    "list": {
+        "id": "LIST_ID",
+        "name": "Option 2",
+        "access": true
+    },
+    "project": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "folder": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "space": {
+        "id": "7820110"
+    }
+}
 ]
 ```
 
@@ -95,35 +166,103 @@ This endpoint creates a task with a specific Time Estimate
 
 ### HTTP Request
 
-`POST https://api.clickup.com/api/v2/list/list_id/task`
+`POST https://api.clickup.com/api/v2/list/LIST_ID/task`
 
 ### Query Parameters
 
-Parameter | Default | Description
+Parameter | Example | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+list_id | 123 | List ID where a task will belong
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+You can get the List ID from your ClickUp page, where if this is the URL `https://app.clickup.com/5750043/v/l/6-31032008-1`, then `31032008` is the List URL.
+
 
 ## Updating the Time Estimate of a task
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
+curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
+  -H "Authorization: access_token" 
+  -H "Content-Type: application/json" 
+  -X PUT 
+  -d 
+  '{
+      "time_estimate": 9000000
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "id": "TASK_ID",
+    "custom_id": null,
+    "name": "test",
+    "text_content": null,
+    "description": null,
+    "status": {
+        "id": "p7820110_wJliwclT",
+        "status": "planning",
+        "color": "#d3d3d3",
+        "orderindex": 0,
+        "type": "open"
+    },
+    "orderindex": "14.00067860000000000000000000000000",
+    "date_created": "1627200135006",
+    "date_updated": "1627200239937",
+    "date_closed": null,
+    "archived": false,
+    "creator": {
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    },
+    "assignees": [],
+    "watchers": [{
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "initials": "GK",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    }],
+    "checklists": [],
+    "tags": [],
+    "parent": null,
+    "priority": null,
+    "due_date": null,
+    "start_date": null,
+    "points": null,
+    "time_estimate": 9000000,
+    "time_spent": 0,
+    "custom_fields": [],
+    "dependencies": [],
+    "linked_tasks": [],
+    "team_id": "5750043",
+    "url": "https://app.clickup.com/t/TASK_ID",
+    "permission_level": "create",
+    "list": {
+        "id": "31032008",
+        "name": "Option 2",
+        "access": true
+    },
+    "project": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "folder": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "space": {
+        "id": "7820110"
+    },
+    "attachments": []
 }
 ```
 
@@ -131,58 +270,212 @@ This endpoint updates the Time Estimate of a specific task
 
 ### HTTP Request
 
-`PUT https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&team_id=`
+`PUT https://api.clickup.com/api/v2/task/TASK_ID/`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+TASK_ID | The ID of the task where the time estimate will be updated
+
+
+You can get the TASK_ID from a specific ClickUp task page, where if this is the URL `https://app.clickup.com/t/18bvnvr`, then `18bvnvr` is the Task ID.
+
+
 
 
 ## Retrieving a task with its Time Estimate
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
+curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
+  -H "Authorization: access_token" 
+  -H "Content-Type: application/json" 
+  -X GET
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "id": "TASK_ID",
+    "custom_id": null,
+    "name": "test",
+    "text_content": null,
+    "description": null,
+    "status": {
+        "id": "p7820110_wJliwclT",
+        "status": "planning",
+        "color": "#d3d3d3",
+        "orderindex": 0,
+        "type": "open"
+    },
+    "orderindex": "14.00067860000000000000000000000000",
+    "date_created": "1627200135006",
+    "date_updated": "1627200239937",
+    "date_closed": null,
+    "archived": false,
+    "creator": {
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    },
+    "assignees": [],
+    "watchers": [{
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "initials": "GK",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    }],
+    "checklists": [],
+    "tags": [],
+    "parent": null,
+    "priority": null,
+    "due_date": null,
+    "start_date": null,
+    "points": null,
+    "time_estimate": 9000000,
+    "time_spent": 0,
+    "custom_fields": [],
+    "dependencies": [],
+    "linked_tasks": [],
+    "team_id": "5750043",
+    "url": "https://app.clickup.com/t/TASK_ID",
+    "permission_level": "create",
+    "list": {
+        "id": "31032008",
+        "name": "Option 2",
+        "access": true
+    },
+    "project": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "folder": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "space": {
+        "id": "7820110"
+    },
+    "attachments": []
 }
 ```
+> Search for `time_estimate` in the body response above to retrieve the data. 
 
-This endpoint retrieves a task with its Time Estimate.
+This endpoint retrieves a task with all its details, including Time Estimate.
 
 ### HTTP Request
 
-`GET https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&team_id=&include_subtasks=`
+`GET https://api.clickup.com/api/v2/task/TASK_ID/`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+TASK_ID | The ID of the task that we want to retrieve data.
+
+
+You can get the TASK_ID from a specific ClickUp task page, where if this is the URL `https://app.clickup.com/t/18bvnvr`, then `18bvnvr` is the Task ID.
+
+
+
+
+
 
 ## Removing Time Estimate from a task
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
+curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
+  -H "Authorization: access_token" 
+  -H "Content-Type: application/json" 
+  -X PUT 
+  -d 
+  '{
+      "time_estimate": 0
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "id": "TASK_ID",
+    "custom_id": null,
+    "name": "test",
+    "text_content": null,
+    "description": null,
+    "status": {
+        "id": "p7820110_wJliwclT",
+        "status": "planning",
+        "color": "#d3d3d3",
+        "orderindex": 0,
+        "type": "open"
+    },
+    "orderindex": "14.00067860000000000000000000000000",
+    "date_created": "1627200135006",
+    "date_updated": "1627202713378",
+    "date_closed": null,
+    "archived": false,
+    "creator": {
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    },
+    "assignees": [],
+    "watchers": [{
+        "id": 7851964,
+        "username": "Gideon Koh",
+        "color": "#263238",
+        "initials": "GK",
+        "email": "high.hope.light+gideon@gmail.com",
+        "profilePicture": null
+    }],
+    "checklists": [],
+    "tags": [],
+    "parent": null,
+    "priority": null,
+    "due_date": null,
+    "start_date": null,
+    "points": null,
+    "time_estimate": 0,
+    "time_spent": 0,
+    "custom_fields": [],
+    "dependencies": [],
+    "linked_tasks": [],
+    "team_id": "5750043",
+    "url": "https://app.clickup.com/t/TASK_ID",
+    "permission_level": "create",
+    "list": {
+        "id": "31032008",
+        "name": "Option 2",
+        "access": true
+    },
+    "project": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "folder": {
+        "id": "14312975",
+        "name": "hidden",
+        "hidden": true,
+        "access": true
+    },
+    "space": {
+        "id": "7820110"
+    },
+    "attachments": []
 }
 ```
 
@@ -190,10 +483,13 @@ This endpoint removes the Time Estimate from a task.
 
 ### HTTP Request
 
-`PUT https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&team_id=`
+`PUT https://api.clickup.com/api/v2/task/TASK_ID/`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+TASK_ID | The ID of the task where the time estimate will be updated
+
+
+You can get the TASK_ID from a specific ClickUp task page, where if this is the URL `https://app.clickup.com/t/18bvnvr`, then `18bvnvr` is the Task ID.
