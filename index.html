@@ -326,10 +326,10 @@
             <a href="#time-estimates" class="toc-h1 toc-link" data-title="Time Estimates">Time Estimates</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#create-a-simple-task-with-a-specific-time-estimate" class="toc-h2 toc-link" data-title="Create a simple task with a specific Time Estimate">Create a simple task with a specific Time Estimate</a>
+                    <a href="#create-a-task-with-its-time-estimate" class="toc-h2 toc-link" data-title="Create a task with its Time Estimate">Create a task with its Time Estimate</a>
                   </li>
                   <li>
-                    <a href="#updating-the-time-estimate-of-a-specific-task" class="toc-h2 toc-link" data-title="Updating the Time Estimate of a specific task">Updating the Time Estimate of a specific task</a>
+                    <a href="#updating-the-time-estimate-of-a-task" class="toc-h2 toc-link" data-title="Updating the Time Estimate of a task">Updating the Time Estimate of a task</a>
                   </li>
                   <li>
                     <a href="#retrieving-a-task-with-its-time-estimate" class="toc-h2 toc-link" data-title="Retrieving a task with its Time Estimate">Retrieving a task with its Time Estimate</a>
@@ -355,10 +355,12 @@
 
 <ul>
 <li>Creating a task with Time Estimates</li>
-<li>Updating the Time Estimate of a specific task</li>
-<li>Retrieving a task with its Time Estimate</li>
-<li>Removing the Time Estimate of a specific task</li>
+<li>Updating the Time Estimate of a task</li>
+<li>Retrieving a task and its Time Estimate</li>
+<li>Removing the Time Estimate of a task</li>
 </ul>
+
+<aside class="warning">You must <a href='https://docs.clickup.com/en/articles/1666875-time-estimates-clickapp'>enable Time Estimate</a> in your ClickUp account first.</aside>
 <h1 id='authentication'>Authentication</h1>
 <p><strong>This part is taken from the <a href="https://jsapi.apiary.io/apis/clickup20/introduction/authentication.html">main ClickUp API documentation page</a>.</strong></p>
 
@@ -389,7 +391,7 @@ You must replace <code>access_token</code> with your personal token.
 <p>When you want to develop an application that others can use, you must go through the OAuth2 flow so that ever user that uses your application gets assigned an individualized token. This way each user of your application is able to access their own ClickUp resources. <a href="https://jsapi.apiary.io/apis/clickup20/introduction/authentication/oauth2-flow.html">Click here to read further on how to use the ClickUp OAuth2 flow</a></p>
 
 <p>Note: <em>ClickUp uses the authorization code grant type.</em></p>
-<h1 id='time-estimates'>Time Estimates</h1><h2 id='create-a-simple-task-with-a-specific-time-estimate'>Create a simple task with a specific Time Estimate</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
+<h1 id='time-estimates'>Time Estimates</h1><h2 id='create-a-task-with-its-time-estimate'>Create a task with its Time Estimate</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre></div>
 <blockquote>
@@ -438,7 +440,7 @@ You must replace <code>access_token</code> with your personal token.
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
-<h2 id='updating-the-time-estimate-of-a-specific-task'>Updating the Time Estimate of a specific task</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
+<h2 id='updating-the-time-estimate-of-a-task'>Updating the Time Estimate of a task</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre></div>
 <blockquote>
@@ -453,8 +455,6 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates the Time Estimate of a specific task</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>PUT https://api.clickup.com/api/v2/task/task_id/?custom_task_ids=&amp;team_id=</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
