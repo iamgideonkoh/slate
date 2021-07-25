@@ -274,9 +274,9 @@ This endpoint updates the Time Estimate of a specific task
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TASK_ID | The ID of the task where the time estimate will be updated
+Parameter | Example | Description
+--------- | ------- | -----------
+TASK_ID | 456 | The ID of the task where the time estimate will be updated
 
 
 You can get the TASK_ID from a specific ClickUp task page, where if this is the URL `https://app.clickup.com/t/18bvnvr`, then `18bvnvr` is the Task ID.
@@ -378,9 +378,9 @@ This endpoint retrieves a task with all its details, including Time Estimate.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TASK_ID | The ID of the task that we want to retrieve data.
+Parameter | Example | Description
+--------- | ------- | -----------
+TASK_ID | 456 | The ID of the task where the time estimate will be updated
 
 
 You can get the TASK_ID from a specific ClickUp task page, where if this is the URL `https://app.clickup.com/t/18bvnvr`, then `18bvnvr` is the Task ID.
@@ -487,9 +487,9 @@ This endpoint removes the Time Estimate from a task.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TASK_ID | The ID of the task where the time estimate will be updated
+Parameter | Example | Description
+--------- | ------- | -----------
+TASK_ID | 456 | The ID of the task where the time estimate will be updated
 
 
 You can get the TASK_ID from a specific ClickUp task page, where if this is the URL `https://app.clickup.com/t/18bvnvr`, then `18bvnvr` is the Task ID.
