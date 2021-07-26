@@ -90,7 +90,7 @@ curl "https://api.clickup.com/api/v2/list/LIST_ID/task"
 ```json
 [
 {
-    "id": "TASK_ID",
+    "id": "456",
     "custom_id": null,
     "name": "test",
     "text_content": null,
@@ -109,18 +109,18 @@ curl "https://api.clickup.com/api/v2/list/LIST_ID/task"
     "archived": false,
     "creator": {
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "email": "high.hope.light+gideon@gmail.com",
+        "email": "name@example.com",
         "profilePicture": null
     },
     "assignees": [],
     "watchers": [{
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "initials": "GK",
-        "email": "high.hope.light+gideon@gmail.com",
+        "initials": "U",
+        "email": "name@example.com",
         "profilePicture": null
     }],
     "checklists": [],
@@ -136,11 +136,11 @@ curl "https://api.clickup.com/api/v2/list/LIST_ID/task"
     "dependencies": [],
     "linked_tasks": [],
     "team_id": "5750043",
-    "url": "https://app.clickup.com/t/TASK_ID",
+    "url": "https://app.clickup.com/t/456",
     "permission_level": "create",
     "list": {
-        "id": "LIST_ID",
-        "name": "Option 2",
+        "id": "123",
+        "name": "my list",
         "access": true
     },
     "project": {
@@ -194,7 +194,7 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
 
 ```json
 {
-    "id": "TASK_ID",
+    "id": "456",
     "custom_id": null,
     "name": "test",
     "text_content": null,
@@ -213,18 +213,18 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "archived": false,
     "creator": {
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "email": "high.hope.light+gideon@gmail.com",
+        "email": "name@example.com",
         "profilePicture": null
     },
     "assignees": [],
     "watchers": [{
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "initials": "GK",
-        "email": "high.hope.light+gideon@gmail.com",
+        "initials": "U",
+        "email": "name@example.com",
         "profilePicture": null
     }],
     "checklists": [],
@@ -243,8 +243,8 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "url": "https://app.clickup.com/t/TASK_ID",
     "permission_level": "create",
     "list": {
-        "id": "31032008",
-        "name": "Option 2",
+        "id": "123",
+        "name": "my list",
         "access": true
     },
     "project": {
@@ -297,7 +297,7 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
 
 ```json
 {
-    "id": "TASK_ID",
+    "id": "456",
     "custom_id": null,
     "name": "test",
     "text_content": null,
@@ -316,18 +316,18 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "archived": false,
     "creator": {
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "email": "high.hope.light+gideon@gmail.com",
+        "email": "name@example.com",
         "profilePicture": null
     },
     "assignees": [],
     "watchers": [{
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "initials": "GK",
-        "email": "high.hope.light+gideon@gmail.com",
+        "initials": "U",
+        "email": "name@example.com",
         "profilePicture": null
     }],
     "checklists": [],
@@ -343,11 +343,11 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "dependencies": [],
     "linked_tasks": [],
     "team_id": "5750043",
-    "url": "https://app.clickup.com/t/TASK_ID",
+    "url": "https://app.clickup.com/t/456",
     "permission_level": "create",
     "list": {
-        "id": "31032008",
-        "name": "Option 2",
+        "id": "123",
+        "name": "my list" ,
         "access": true
     },
     "project": {
@@ -407,7 +407,7 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
 
 ```json
 {
-    "id": "TASK_ID",
+    "id": "456",
     "custom_id": null,
     "name": "test",
     "text_content": null,
@@ -426,18 +426,18 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "archived": false,
     "creator": {
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "email": "high.hope.light+gideon@gmail.com",
+        "email": "name@example.com",
         "profilePicture": null
     },
     "assignees": [],
     "watchers": [{
         "id": 7851964,
-        "username": "Gideon Koh",
+        "username": "Username",
         "color": "#263238",
-        "initials": "GK",
-        "email": "high.hope.light+gideon@gmail.com",
+        "initials": "U",
+        "email": "name@example.com",
         "profilePicture": null
     }],
     "checklists": [],
@@ -453,11 +453,11 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "dependencies": [],
     "linked_tasks": [],
     "team_id": "5750043",
-    "url": "https://app.clickup.com/t/TASK_ID",
+    "url": "https://app.clickup.com/t/456",
     "permission_level": "create",
     "list": {
-        "id": "31032008",
-        "name": "Option 2",
+        "id": "123",
+        "name": "my list",
         "access": true
     },
     "project": {
