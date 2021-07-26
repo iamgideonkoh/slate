@@ -71,7 +71,7 @@ Note: _ClickUp uses the authorization code grant type._
 `time_estimate` values use milliseconds.
 
 
-## Create a task with its Time Estimate
+## Create a task with Time Estimate
 
 ```shell
 curl "https://api.clickup.com/api/v2/list/LIST_ID/task" 
@@ -177,7 +177,7 @@ list_id | 123 | List ID where a task will belong
 You can get the List ID from your ClickUp page, where if this is the URL `https://app.clickup.com/5750043/v/l/6-31032008-1`, then `31032008` is the List URL.
 
 
-## Updating the Time Estimate of a task
+## Update the Time Estimate of a task
 
 ```shell
 curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
@@ -284,7 +284,7 @@ You can get the TASK_ID from a specific ClickUp task page, where if this is the 
 
 
 
-## Retrieving a task with its Time Estimate
+## Retrieve a task with its Time Estimate
 
 ```shell
 curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
@@ -390,7 +390,7 @@ You can get the TASK_ID from a specific ClickUp task page, where if this is the 
 
 
 
-## Removing Time Estimate from a task
+## Remove Time Estimate from a task
 
 ```shell
 curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
