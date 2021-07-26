@@ -240,7 +240,7 @@ curl "https://api.clickup.com/api/v2/task/TASK_ID/"
     "dependencies": [],
     "linked_tasks": [],
     "team_id": "5750043",
-    "url": "https://app.clickup.com/t/TASK_ID",
+    "url": "https://app.clickup.com/t/456",
     "permission_level": "create",
     "list": {
         "id": "123",
