@@ -48,13 +48,14 @@ curl "api_endpoint_here" \
 
 > Make sure to replace `access_token` with your API key.
 
-If you are using the API for personal use, it is safe to use the personal API token. You can find this token in your user settings, under the Apps section. At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.
+If you are using the API for personal use, it is safe to use the personal API token. You can find this token with these steps:
 
-includes:
-  - retrieve_api.md.erb
+* Click your profile at the bottom-left of your account
+* Under your user settings, click "Apps" 
+* At the top of the page you have the option to generate a personal token. These tokens will always begin with pk_.
 
-includes:
-  - retrieve_api2.md.erb
+<img src="<%= image_path('images/retrieveapi1.gif') %>" />
+<img src="<%= image_path('images/retrieveapi2.png') %>" />
 
 If your token becomes compromised, you can regenerate it. However, be aware that any applications that were using the old token will lose access once it has been regenerated.
 
