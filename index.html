@@ -335,7 +335,7 @@
                     <a href="#update-the-time-estimate-of-a-task" class="toc-h2 toc-link" data-title="Update the Time Estimate of a task">Update the Time Estimate of a task</a>
                   </li>
                   <li>
-                    <a href="#retrieve-a-task-with-its-time-estimate" class="toc-h2 toc-link" data-title="Retrieve a task with its Time Estimate">Retrieve a task with its Time Estimate</a>
+                    <a href="#retrieve-a-task-amp-its-time-estimate" class="toc-h2 toc-link" data-title="Retrieve a task &amp; its Time Estimate">Retrieve a task &amp; its Time Estimate</a>
                   </li>
                   <li>
                     <a href="#remove-time-estimate-from-a-task" class="toc-h2 toc-link" data-title="Remove Time Estimate from a task">Remove Time Estimate from a task</a>
@@ -604,7 +604,7 @@ You must replace <code>access_token</code> with your personal token.
 </tbody></table>
 
 <p>You can get the TASK_ID from a specific ClickUp task page, where if this is the URL <code>https://app.clickup.com/t/18bvnvr</code>, then <code>18bvnvr</code> is the Task ID.</p>
-<h2 id='retrieve-a-task-with-its-time-estimate'>Retrieve a task with its Time Estimate</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.clickup.com/api/v2/task/TASK_ID/"</span> 
+<h2 id='retrieve-a-task-amp-its-time-estimate'>Retrieve a task &amp; its Time Estimate</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.clickup.com/api/v2/task/TASK_ID/"</span> 
   <span class="nt">-H</span> <span class="s2">"Authorization: access_token"</span> 
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
   <span class="nt">-X</span> GET
