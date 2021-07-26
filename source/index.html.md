@@ -284,7 +284,7 @@ You can get the TASK_ID from a specific ClickUp task page, where if this is the 
 
 
 
-## Retrieve a task with its Time Estimate
+## Retrieve a task & its Time Estimate
 
 ```shell
 curl "https://api.clickup.com/api/v2/task/TASK_ID/" 
